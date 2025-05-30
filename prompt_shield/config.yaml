@@ -1,0 +1,20 @@
+risk_threshold: 0.3
+
+hazard_policies:
+  S1: block         # Violent Crimes
+  S2: warn          # Non-Violent Crimes
+  S3: block         # Sex-Related Crimes
+  S4: block         # Child Sexual Exploitation
+  S5: warn          # Defamation
+  S6: warn          # Specialized Advice
+  S7: warn          # Privacy
+  S8: warn          # Intellectual Property
+  S9: block         # Indiscriminate Weapons
+  S10: block        # Hate
+  S11: warn         # Suicide & Self-Harm
+  S12: warn         # Sexual Content
+  S13: warn         # Elections
+  S14: block        # Code Interpreter Abuse
+  S15: block        # Prompt injection
+  default: warn     # Fallback for unknown or uncategorized hazards
+
