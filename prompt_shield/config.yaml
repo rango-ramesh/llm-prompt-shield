@@ -1,20 +1,63 @@
-risk_threshold: 0.3
+# Prompt Shield Configuration
+# This file controls how prompt injection detection works
+
+# ============================================================================
+# HAZARD POLICIES - What to do when threats are detected
+# ============================================================================
+# Actions: "block" (prevent), "warn" (flag but allow), "allow" (ignore)
 
 hazard_policies:
-  S1: block         # Violent Crimes
-  S2: warn          # Non-Violent Crimes
-  S3: block         # Sex-Related Crimes
-  S4: block         # Child Sexual Exploitation
-  S5: warn          # Defamation
-  S6: warn          # Specialized Advice
-  S7: warn          # Privacy
-  S8: warn          # Intellectual Property
-  S9: block         # Indiscriminate Weapons
-  S10: block        # Hate
-  S11: warn         # Suicide & Self-Harm
-  S12: warn         # Sexual Content
-  S13: warn         # Elections
-  S14: block        # Code Interpreter Abuse
-  S15: block        # Prompt injection
-  default: warn     # Fallback for unknown or uncategorized hazards
+  prompt_injection: block          # Direct attempts to override AI behavior
+  data_extraction: block           # Attempts to extract system information  
+  malicious_code: block           # Code injection attempts
+  role_manipulation: block        # Attempts to change AI personality/role
+  information_extraction: block   # Requests for sensitive data
+  default: allow                  # Action for unknown/unclassified hazards
 
+# ============================================================================
+# DETECTION SETTINGS - How sensitive the detection should be
+# ============================================================================
+
+# Semantic similarity threshold (0.0 to 1.0)
+# Lower = more sensitive (catches more but may have false positives)
+# Higher = less sensitive (fewer false positives but may miss attacks)
+# Recommended: 0.4 (strict), 0.5 (balanced), 0.6 (lenient)
+semantic_threshold: 0.5
+
+# Advanced pattern detection for obfuscated attacks
+# Detects unicode substitution, leetspeak, fragmented commands, etc.
+# Set to false to disable and improve performance
+advanced_patterns_enabled: true
+
+# Pattern detection confidence threshold (0.0 to 1.0)
+# Only patterns above this confidence level will trigger detection
+pattern_confidence_threshold: 0.7
+
+# ============================================================================
+# PERFORMANCE SETTINGS - Optimize for your use case
+# ============================================================================
+
+# Number of worker threads for async processing
+# Higher = faster but uses more CPU/memory
+# Recommended: 2-4 for most applications
+max_workers: 2
+
+# ============================================================================
+# LOGGING AND DEBUGGING - Control output verbosity
+# ============================================================================
+
+# Show detailed analysis of each prompt (useful for debugging)
+# Warning: This will print sensitive prompts to console
+debug_logging: false
+
+# Log level for internal operations
+# Options: "DEBUG", "INFO", "WARNING", "ERROR"
+log_level: "INFO"
+
+# ============================================================================
+# MODEL SETTINGS - Advanced users only
+# ============================================================================
+
+# Sentence transformer model for semantic analysis
+# Larger models are more accurate but slower and use more memory
+# Options: "all-mpnet-base-v2" (recommended), "all-MiniLM-L6-v2
