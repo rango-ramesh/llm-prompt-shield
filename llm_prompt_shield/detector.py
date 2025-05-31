@@ -19,8 +19,8 @@ class PromptGuard:
         
         # Load required components
         try:
-            from prompt_shield.layers.semantic_analyzer import classify_hazards
-            from prompt_shield.policy import apply_policy, hazard_policies
+            from llm_prompt_shield.layers.semantic_analyzer import classify_hazards
+            from llm_prompt_shield.policy import apply_policy, hazard_policies
             
             self.classify_hazards = classify_hazards
             self.apply_policy = apply_policy
@@ -33,7 +33,7 @@ class PromptGuard:
         # Try to load advanced pattern detector
         if enable_advanced_patterns:
             try:
-                from prompt_shield.layers.pattern_detector import AdvancedPatternDetector
+                from llm_prompt_shield.layers.pattern_detector import AdvancedPatternDetector
                 self.pattern_detector = AdvancedPatternDetector()
                 self.logger.info("Advanced pattern detector loaded")
             except ImportError:

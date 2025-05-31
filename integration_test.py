@@ -12,7 +12,7 @@ def test_langchain_integration():
     print("Testing LangChain integration...")
     
     try:
-        from prompt_shield.integrations.langchain import (
+        from llm_prompt_shield.integrations.langchain import (
             PromptGuardCallbackHandler, 
             create_protected_llm,
             PromptInjectionDetected
@@ -63,7 +63,7 @@ def test_autogen_integration():
     print("Testing AutoGen integration...")
     
     try:
-        from prompt_shield.integrations.autogen import (
+        from llm_prompt_shield.integrations.autogen import (
             PromptGuardAgent,
             protect_agent,
             PromptInjectionDetected
@@ -196,12 +196,12 @@ def test_integrations_init():
     print("Testing integrations module initialization...")
     
     try:
-        import prompt_shield.integrations
+        import llm_prompt_shield.integrations
         print("  ✅ Integrations module imports successfully")
         
         # Check that __all__ exists and is a list
-        if hasattr(prompt_shield.integrations, '__all__'):
-            all_exports = prompt_shield.integrations.__all__
+        if hasattr(llm_prompt_shield.integrations, '__all__'):
+            all_exports = llm_prompt_shield.integrations.__all__
             if isinstance(all_exports, list):
                 print(f"  ✅ __all__ exports {len(all_exports)} items")
             else:

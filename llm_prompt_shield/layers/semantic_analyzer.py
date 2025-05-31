@@ -47,7 +47,7 @@ def _load_config() -> Dict:
     """Load configuration including semantic threshold."""
     try:
         # Try user config first
-        from prompt_shield.user_config import load_user_config
+        from llm_prompt_shield.user_config import load_user_config
         return load_user_config()
     except Exception:
         # Fall back to package config
@@ -181,7 +181,7 @@ def _is_valid_embedding(vec: np.ndarray) -> bool:
 def _get_cache_path():
     """Get cache file path in user directory.""" 
     try:
-        from prompt_shield.user_config import get_config_path
+        from llm_prompt_shield.user_config import get_config_path
         user_config_dir = get_config_path().parent
         return user_config_dir / "hazard_embeddings.joblib"
     except:

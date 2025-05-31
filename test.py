@@ -1,4 +1,4 @@
-from prompt_shield.detector import PromptGuard
+from llm_prompt_shield.detector import PromptGuard
 
 def test_basic_cases():
     """Simple test of basic prompt injection cases."""

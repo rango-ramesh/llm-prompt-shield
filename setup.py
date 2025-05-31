@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="prompt-shield",
+    name="llm-prompt-shield",
     version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Rango Ramesh",
+    author_email="rango@celestials.ai",
     description="Lightweight prompt injection detection and blocking",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/prompt-shield",
+    url="https://github.com/rango-ramesh/llm-prompt-shield",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -49,6 +49,6 @@ setup(
     },
     include_package_data=True,
     package_data={
-        "prompt_shield": ["data/*.yaml", "*.yaml"],
+        "llm_prompt_shield": ["data/*.yaml", "*.yaml"],
     },
 )

@@ -13,7 +13,7 @@ Lightweight prompt injection detection and blocking for Python applications.
 ## Quick Start
 
 ```python
-from prompt_shield import PromptGuard
+from llm_prompt_shield import PromptGuard
 
 guard = PromptGuard()
 
@@ -29,23 +29,23 @@ guard.close()
 
 ### Standard (includes all detection features)
 ```bash
-pip install prompt-shield
+pip install llm-prompt-shield
 ```
 
 ### With integrations
 ```bash
-pip install prompt-shield[integrations]  # All integrations
-pip install prompt-shield[langchain]     # Just LangChain
-pip install prompt-shield[autogen]       # Just AutoGen  
+pip install llm-prompt-shield[integrations]  # All integrations
+pip install llm-prompt-shield[langchain]     # Just LangChain
+pip install llm-prompt-shield[autogen]       # Just AutoGen  
 ```
 
 ## Configuration
 
 ### First time setup
 ```python
-from prompt_shield.config_manager import init_user_config, edit_config
+from llm_prompt_shield.config_manager import init_user_config, edit_config
 
-# Copy default config to ~/.prompt_shield/
+# Copy default config to ~/.llm_prompt_shield/
 init_user_config()
 
 # Open config file in your default editor
@@ -65,8 +65,8 @@ result = guard.analyze("suspicious prompt", config)
 
 ### Config file location
 After running `init_user_config()`, edit your personal config at:
-- **Linux/Mac**: `~/.prompt_shield/config.yaml`
-- **Windows**: `C:\Users\YourName\.prompt_shield\config.yaml`
+- **Linux/Mac**: `~/.llm_prompt_shield/config.yaml`
+- **Windows**: `C:\Users\YourName\.llm_prompt_shield\config.yaml`
 
 ## Detection Layers
 
@@ -77,7 +77,7 @@ After running `init_user_config()`, edit your personal config at:
 ## Simple API
 
 ```python
-from prompt_shield import is_safe, analyze
+from llm_prompt_shield import is_safe, analyze
 
 # Quick safety check
 if is_safe("user input here"):
@@ -104,13 +104,13 @@ PromptGuard provides seamless integrations with popular AI agent frameworks to a
 ### Installation
 
 ```bash
-pip install prompt-shield[langchain]
+pip install llm-prompt-shield[langchain]
 ```
 
 ### Quick Start
 
 ```python
-from prompt_shield.integrations.langchain import PromptGuardCallbackHandler
+from llm_prompt_shield.integrations.langchain import PromptGuardCallbackHandler
 from langchain.llms import OpenAI
 
 # Create callback handler
@@ -127,7 +127,7 @@ response = llm("What is the capital of France?")  # ✅ Safe
 ### Advanced Configuration
 
 ```python
-from prompt_shield.integrations.langchain import (
+from llm_prompt_shield.integrations.langchain import (
     PromptGuardCallbackHandler,
     PromptInjectionDetected
 )
@@ -185,13 +185,13 @@ except PromptInjectionDetected as e:
 ### Installation
 
 ```bash
-pip install prompt-shield[autogen]
+pip install llm-prompt-shield[autogen]
 ```
 
 ### Quick Start
 
 ```python
-from prompt_shield.integrations.autogen import PromptGuardAgent
+from llm_prompt_shield.integrations.autogen import PromptGuardAgent
 import autogen
 
 # Create protected agent
@@ -220,7 +220,7 @@ user_proxy.initiate_chat(agent, message="Hello!")  # ✅ Works
 
 ```python
 from autogen import ConversableAgent
-from prompt_shield.integrations.autogen import protect_agent
+from llm_prompt_shield.integrations.autogen import protect_agent
 
 # Create standard AutoGen agent
 agent = ConversableAgent(
@@ -241,7 +241,7 @@ protected_agent = protect_agent(
 ### Group Chat Protection
 
 ```python
-from prompt_shield.integrations.autogen import create_protected_group_chat
+from llm_prompt_shield.integrations.autogen import create_protected_group_chat
 
 # Create multiple agents
 user_proxy = autogen.UserProxyAgent(name="user")
@@ -302,7 +302,7 @@ guard_config = {
 
 ### LangChain
 ```python
-from prompt_shield.integrations.langchain import PromptInjectionDetected
+from llm_prompt_shield.integrations.langchain import PromptInjectionDetected
 
 try:
     result = chain.run("malicious prompt")
@@ -359,7 +359,7 @@ except PromptInjectionDetected:
 ```python
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import Chroma
-from prompt_shield.integrations.langchain import PromptGuardCallbackHandler
+from llm_prompt_shield.integrations.langchain import PromptGuardCallbackHandler
 
 # Protected RAG chain
 callback = PromptGuardCallbackHandler(block_on_detection=True)
@@ -378,7 +378,7 @@ answer = qa_chain.run("What is the company policy on remote work?")
 
 ### AutoGen Code Review Workflow
 ```python
-from prompt_shield.integrations.autogen import PromptGuardAgent
+from llm_prompt_shield.integrations.autogen import PromptGuardAgent
 
 # Protected code reviewer
 reviewer = PromptGuardAgent(
@@ -409,7 +409,7 @@ user_proxy.initiate_chat(
 
 1. **Import Errors**
    ```bash
-   pip install --upgrade prompt-shield[integrations]
+   pip install --upgrade llm-prompt-shield[integrations]
    ```
 
 2. **Detection Too Sensitive**
@@ -438,7 +438,7 @@ user_proxy.initiate_chat(
 
 ```bash
 # Clone and setup
-git clone https://github.com/rango-ramesh/prompt-shield
+git clone https://github.com/rango-ramesh/llm-prompt-shield
 cd prompt-shield
 python3 -m venv venv
 source venv/bin/activate

@@ -46,10 +46,10 @@ integrations = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/prompt-shield"
-Repository = "https://github.com/yourusername/prompt-shield"
-Documentation = "https://github.com/yourusername/prompt-shield#readme"
-"Bug Tracker" = "https://github.com/yourusername/prompt-shield/issues"
+Homepage = "https://github.com/rango-ramesh/llm-prompt-shield"
+Repository = "https://github.com/rango-ramesh/llm-prompt-shield"
+Documentation = "https://github.com/rango-ramesh/llm-prompt-shield#readme"
+"Bug Tracker" = "https://github.com/rango-ramesh/llm-prompt-shield/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
