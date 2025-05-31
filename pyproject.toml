@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "prompt-shield"
+name = "llm-prompt-shield"
 dynamic = ["version"]
 description = "Lightweight prompt injection detection and blocking"
 readme = "README.md"
@@ -53,7 +53,7 @@ Documentation = "https://github.com/rango-ramesh/llm-prompt-shield#readme"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["prompt_shield*"]
+include = ["llm_prompt_shield*"]
 
 [tool.setuptools.package-data]
-prompt_shield = ["data/*.yaml", "*.yaml"]
+llm_prompt_shield = ["data/*.yaml", "*.yaml"]

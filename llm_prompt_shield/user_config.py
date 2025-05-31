@@ -4,15 +4,15 @@ from pathlib import Path
 
 def get_config_path():
     """Get the user's config file path."""
-    return Path.home() / ".prompt_shield" / "config.yaml"
+    return Path.home() / ".llm_prompt_shield" / "config.yaml"
 
 def get_data_path(filename):
     """Get the user's data file path."""
-    return Path.home() / ".prompt_shield" / "data" / filename
+    return Path.home() / ".llm_prompt_shield" / "data" / filename
 
 def init_user_config():
     """Initialize user config directory with default files."""
-    user_config_dir = Path.home() / ".prompt_shield"
+    user_config_dir = Path.home() / ".llm_prompt_shield"
     user_data_dir = user_config_dir / "data"
     
     # Create directories
@@ -87,7 +87,7 @@ def edit_config():
 
 def reset_config():
     """Reset user config to defaults."""
-    user_config_dir = Path.home() / ".prompt_shield"
+    user_config_dir = Path.home() / ".llm_prompt_shield"
     if user_config_dir.exists():
         shutil.rmtree(user_config_dir)
     init_user_config()
@@ -105,6 +105,6 @@ if __name__ == "__main__":
         elif command == "reset":
             reset_config()
         else:
-            print("Usage: python -m prompt_shield.config_manager [init|edit|reset]")
+            print("Usage: python -m llm_prompt_shield.config_manager [init|edit|reset]")
     else:
         edit_config()

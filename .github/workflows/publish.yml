@@ -2,9 +2,9 @@
 name: Build and Publish to PyPI
 
 on:
-  # Trigger on new releases
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'  # Triggers on any tag starting with 'v'
   
   # Allow manual trigger from GitHub UI
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
     
     - name: Run basic tests
       run: |
-        python -c "from prompt_shield import PromptGuard; print('Import test passed')"
+        python -c "from llm_prompt_shield import PromptGuard; print('Import test passed')"
         python integration_test.py
   
   build:
@@ -73,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/prompt-shield
+      url: https://pypi.org/p/llm-prompt-shield
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
     
@@ -94,7 +94,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch'  # Only on manual trigger
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/prompt-shield
+      url: https://test.pypi.org/p/llm-prompt-shield
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
     

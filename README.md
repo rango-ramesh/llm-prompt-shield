@@ -439,7 +439,7 @@ user_proxy.initiate_chat(
 ```bash
 # Clone and setup
 git clone https://github.com/rango-ramesh/llm-prompt-shield
-cd prompt-shield
+cd llm_prompt_shield
 python3 -m venv venv
 source venv/bin/activate
 

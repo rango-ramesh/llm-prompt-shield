@@ -187,7 +187,7 @@ def _get_cache_path():
     except:
         # Fall back to temp directory if config manager not available
         import tempfile
-        return Path(tempfile.gettempdir()) / "prompt_shield_embeddings.joblib"
+        return Path(tempfile.gettempdir()) / "llm_prompt_shield_embeddings.joblib"
 
 def _build_embeddings() -> Dict[str, np.ndarray]:
     """Build embeddings for all hazard examples."""
