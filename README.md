@@ -34,9 +34,9 @@ pip install llm-prompt-shield
 
 ### With integrations
 ```bash
-pip install llm-prompt-shield[integrations]  # All integrations
-pip install llm-prompt-shield[langchain]     # Just LangChain
-pip install llm-prompt-shield[autogen]       # Just AutoGen  
+pip install "llm-prompt-shield[integrations]"  # All integrations
+pip install "llm-prompt-shield[langchain]"     # Just LangChain
+pip install "llm-prompt-shield[autogen]"       # Just AutoGen  
 ```
 
 ## Configuration
@@ -104,7 +104,7 @@ PromptGuard provides seamless integrations with popular AI agent frameworks to a
 ### Installation
 
 ```bash
-pip install llm-prompt-shield[langchain]
+pip install "llm-prompt-shield[langchain]"
 ```
 
 ### Quick Start
@@ -185,7 +185,7 @@ except PromptInjectionDetected as e:
 ### Installation
 
 ```bash
-pip install llm-prompt-shield[autogen]
+pip install "llm-prompt-shield[autogen]"
 ```
 
 ### Quick Start
@@ -409,7 +409,7 @@ user_proxy.initiate_chat(
 
 1. **Import Errors**
    ```bash
-   pip install --upgrade llm-prompt-shield[integrations]
+   pip install --upgrade "llm-prompt-shield[integrations]"
    ```
 
 2. **Detection Too Sensitive**
