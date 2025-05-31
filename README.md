@@ -1,4 +1,4 @@
-# Prompt Shield
+# LLM Prompt Shield
 
 Lightweight prompt injection detection and blocking for Python applications.
 
