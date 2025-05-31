@@ -9,7 +9,7 @@ description = "Lightweight prompt injection detection and blocking"
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Rango Ramesh", email = "rango@celestials.ai"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -28,17 +28,21 @@ dependencies = [
     "PyYAML>=5.0.0",
     "numpy>=1.20.0", 
     "joblib>=1.0.0",
-]
-
-[project.optional-dependencies]
-full = [
     "sentence-transformers>=2.0.0",
     "transformers>=4.20.0",
     "torch>=1.12.0",
 ]
-advanced = [
-    "transformers>=4.20.0",
-    "torch>=1.12.0",
+
+[project.optional-dependencies]
+langchain = [
+    "langchain>=0.0.200",
+]
+autogen = [
+    "pyautogen>=0.2.0",
+]
+integrations = [
+    "langchain>=0.0.200",
+    "pyautogen>=0.2.0",
 ]
 
 [project.urls]

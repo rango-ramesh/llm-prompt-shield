@@ -1,19 +1,37 @@
 import os
 from typing import List, Dict
 import yaml
+from .user_config import load_user_config
 
-# Load policy config
-POLICY_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
-
-# Handle missing config file gracefully
-
-with open(POLICY_PATH, "r") as f:
-    config = yaml.safe_load(f)
-
+# Load policy config from user directory or package defaults
+try:
+    config = load_user_config()
+except Exception as e:
+    print(f"Warning: Could not load config ({e}), using defaults")
+    config = {
+        "hazard_policies": {
+            "prompt_injection": "block",
+            "data_extraction": "block", 
+            "malicious_code": "block",
+            "role_manipulation": "block",
+            "information_extraction": "block",
+            "default": "allow"
+        },
+        "semantic_threshold": 0.5
+    }
 
 hazard_policies = config.get("hazard_policies", {})
-risk_threshold = config.get("risk_threshold", 0.3)
 
+# Support both old and new config key names for backwards compatibility
+risk_threshold = config.get("risk_threshold", config.get("semantic_threshold", 0.5))
+
+if not config.get("debug_logging", False):
+    # Disable debug output unless explicitly enabled
+    def silent_print(*args, **kwargs):
+        pass
+    print = silent_print
+else:
+    print(f"✅ Loaded policies: {hazard_policies}")
 
 def apply_policy(hazards: List[str], risk_score: float, escalated: bool, config: Dict) -> Dict:
     """Apply policy decisions based on detected hazards."""

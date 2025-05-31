@@ -31,16 +31,20 @@ setup(
         "PyYAML>=5.0.0",
         "numpy>=1.20.0",
         "joblib>=1.0.0",
+        "sentence-transformers>=2.0.0",
+        "transformers>=4.20.0",
+        "torch>=1.12.0",
     ],
     extras_require={
-        "full": [
-            "sentence-transformers>=2.0.0",
-            "transformers>=4.20.0",
-            "torch>=1.12.0",
+        "langchain": [
+            "langchain>=0.0.200",
         ],
-        "advanced": [
-            "transformers>=4.20.0",
-            "torch>=1.12.0",
+        "autogen": [
+            "pyautogen>=0.2.0",
+        ],
+        "integrations": [
+            "langchain>=0.0.200",
+            "pyautogen>=0.2.0",
         ]
     },
     include_package_data=True,
