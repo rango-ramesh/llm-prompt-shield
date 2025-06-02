@@ -444,7 +444,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Install all dependencies for testing
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 pip install -e .
 
 # Basic tests
