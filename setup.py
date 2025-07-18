@@ -40,11 +40,11 @@ setup(
             "langchain>=0.0.200",
         ],
         "autogen": [
-            "pyautogen>=0.2.0",
+            "ag2>=0.2.0",
         ],
         "integrations": [
             "langchain>=0.0.200",
-            "pyautogen>=0.2.0",
+            "ag2>=0.2.0",
         ]
     },
     include_package_data=True,
