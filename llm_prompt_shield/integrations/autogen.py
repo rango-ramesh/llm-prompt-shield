@@ -40,7 +40,7 @@ class PromptGuardAgent(ConversableAgent):  # type: ignore
             **kwargs: Other ConversableAgent arguments
         """
         if not AUTOGEN_AVAILABLE:
-            raise ImportError("AutoGen is not installed. Install with: pip install pyautogen")
+            raise ImportError("AutoGen is not installed. Install with: pip install ag2")
             
         super().__init__(
             name=name,
@@ -155,7 +155,7 @@ def protect_agent(agent,
         Protected agent (modifies original)
     """
     if not AUTOGEN_AVAILABLE:
-        raise ImportError("AutoGen is not installed. Install with: pip install pyautogen")
+        raise ImportError("AutoGen is not installed. Install with: pip install ag2")
     
     guard = PromptGuard()
     
